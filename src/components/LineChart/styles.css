@@ -1,0 +1,12 @@
+.line {
+  fill: none;
+  stroke: #222;
+  stroke-width: 0.125rem;
+}
+
+.threshold {
+  composes: line;
+  stroke: red;
+  stroke-width: 1px;
+  opacity: 0.3;
+}

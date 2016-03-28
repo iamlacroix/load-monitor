@@ -1,0 +1,8 @@
+.grid {
+  stroke: #eee;
+}
+
+.subtle {
+  composes: grid;
+  opacity: 0.25;
+}
