@@ -1,5 +1,6 @@
 import 'babel-polyfill';
 import 'isomorphic-fetch';
+import 'normalize.css/normalize.css';
 import './styles/defaults.css';
 
 import React from 'react';

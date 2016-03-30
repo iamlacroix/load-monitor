@@ -1,12 +1,17 @@
+.svg {
+  display: block;
+  margin: auto;
+}
+
 .line {
   fill: none;
-  stroke: #222;
-  stroke-width: 0.125rem;
+  stroke: #111;
+  stroke-width: 3px;
 }
 
 .threshold {
   composes: line;
   stroke: red;
   stroke-width: 1px;
-  opacity: 0.3;
+  opacity: 0.5;
 }

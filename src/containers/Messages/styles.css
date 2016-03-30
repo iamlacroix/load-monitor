@@ -1,0 +1,52 @@
+.title {
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.none {
+  color: #777;
+  font-style: italic;
+  text-align: center;
+}
+
+.list {
+  list-style: none;
+  max-width: 30rem;
+  padding: 0 0.5rem;
+  margin: 0 auto;
+}
+
+.msg {
+  padding: 0.5rem 1rem;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.msg:first-child {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid;
+}
+
+.msg p:first-child {
+  margin-top: 0;
+}
+
+.msg p:last-child {
+  margin-bottom: 0;
+}
+
+.ok {
+  composes: msg;
+}
+
+.warn {
+  composes: msg;
+  color: red;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}

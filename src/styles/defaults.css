@@ -6,4 +6,9 @@ h1,
 h2,
 h3 {
   font-family: 'Montserrat', sans-serif;
+  line-height: 1.25;
+}
+
+p {
+  line-height: 1.7;
 }

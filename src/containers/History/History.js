@@ -13,10 +13,11 @@ const mapToChartData = averages => averages.map(record => ({
 class History extends React.Component {
   static propTypes ={
     averages: PropTypes.array,
+    browserWidth: PropTypes.number,
   }
 
   render() {
-    const { averages } = this.props;
+    const { browserWidth, averages } = this.props;
     const chartData = averages.length > 0 ? mapToChartData(averages) : [{
       x: new Date(),
       y: 3,
@@ -24,7 +25,7 @@ class History extends React.Component {
 
     return (
       <div className={styles.root}>
-        <LineChart chartData={chartData} />
+        <LineChart chartData={chartData} maxWidth={browserWidth} />
       </div>
     );
   }

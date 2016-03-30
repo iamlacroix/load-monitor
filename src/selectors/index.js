@@ -1,5 +1,5 @@
 import { Map } from 'immutable';
-import { get10SecondInterval } from '../helpers/getInterval';
+import { get10SecondInterval } from '../lib/getInterval';
 
 export const latestRecord = state => state.averages
   .sortBy(record => record.get('recordedAt'))
@@ -23,3 +23,11 @@ export const loadAvgsIn10SecondIntervals = state => state.averages
   }))
   .toList()
   .toJS();
+
+// Messages, ordered by most recent
+export const chronologicalMessages = state => state.messages
+  .sortBy(record => record.get('createdAt'))
+  .reverse()
+  .toJS();
+
+export const browserWidth = state => state.browser.width;

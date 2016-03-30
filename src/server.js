@@ -2,6 +2,7 @@ const os = require('os');
 const path = require('path');
 const Hapi = require('hapi');
 const H2o2 = require('h2o2');
+const Inert = require('inert');
 const Good = require('good');
 const GoodConsole = require('good-console');
 
@@ -95,9 +96,9 @@ const setup = PRODUCTION ? () => {
   });
 };
 
-
 server.register([
   H2o2,
+  Inert,
   { register: Good, options: logOptions },
 ], (err) => {
   if (err) throw err;
@@ -123,6 +124,5 @@ server.register([
 
   setup();
 });
-
 
 module.exports = server;

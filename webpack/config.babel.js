@@ -20,7 +20,7 @@ module.exports = {
 
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Datadog Monitor',
+      title: 'Load Monitor',
       filename: '../index.html',
       template: 'src/index.html',
     }),

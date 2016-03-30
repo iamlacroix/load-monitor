@@ -1,0 +1,18 @@
+.root {
+  max-width: 50rem;
+  margin: 0 auto;
+}
+
+.title {
+  margin: 2rem auto;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.stats {
+  margin-bottom: 1.25rem;
+}
+
+.history {
+  margin-bottom: 3.5rem;
+}

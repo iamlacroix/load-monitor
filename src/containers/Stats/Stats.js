@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
+import SyncLoader from 'halogen/SyncLoader';
 import selector from './selector';
 import styles from './styles.css';
 
@@ -13,20 +14,21 @@ class Stats extends React.Component {
 
   render() {
     const { avg1Min, avg5Min, avg15Min } = this.props;
+    const loading = <SyncLoader color="#222" className={styles.loading} />;
 
     return (
       <div className={styles.root}>
         <figure>
           <figcaption>Current Load</figcaption>
-          <h3>{avg1Min}</h3>
+          {Number.isFinite(avg1Min) ? <h3>{avg1Min}</h3> : loading}
         </figure>
         <figure>
           <figcaption>Last 5 Minutes</figcaption>
-          <h3>{avg5Min}</h3>
+          {Number.isFinite(avg5Min) ? <h3>{avg5Min}</h3> : loading}
         </figure>
         <figure>
           <figcaption>Last 15 Minutes</figcaption>
-          <h3>{avg15Min}</h3>
+          {Number.isFinite(avg15Min) ? <h3>{avg15Min}</h3> : loading}
         </figure>
       </div>
     );

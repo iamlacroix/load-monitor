@@ -5,12 +5,12 @@
 .axis path,
 .axis line {
   fill: none;
-  /*stroke: #ddd;*/
+  stroke: #222;
   shape-rendering: crispEdges;
 
 }
 
 .axis text {
-  fill: #444;
+  fill: #111;
   font-size: 0.75rem;
 }

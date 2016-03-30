@@ -1,6 +1,8 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import createLogger from 'redux-logger';
-import sagaMiddlewares from './sagaMiddlewares';
+import { responsiveStoreEnhancer } from 'redux-responsive';
+import sagaMiddleware from 'redux-saga';
+import sagas from '../sagas';
 import rootReducer from '../reducers';
 
 const enhancers = (process.env.NODE_ENV === 'production') ? () => (
@@ -9,8 +11,9 @@ const enhancers = (process.env.NODE_ENV === 'production') ? () => (
   compose(
     // Middleware you want to use in production:
     applyMiddleware(
-      sagaMiddlewares,
-    )
+      sagaMiddleware(sagas),
+    ),
+    responsiveStoreEnhancer
   )
 ) : () => {
   // Development
@@ -19,13 +22,18 @@ const enhancers = (process.env.NODE_ENV === 'production') ? () => (
     collapsed: true,
   });
 
+  const middlewares = process.env.DEBUG ? applyMiddleware(
+    sagaMiddleware(sagas),
+    logger
+  ) : applyMiddleware(
+    sagaMiddleware(sagas)
+  );
+
   return compose(
     // Middleware you want to use in development
-    applyMiddleware(
-      sagaMiddlewares,
-      logger
-    ),
-    // Other store enhancers if you use any
+    middlewares,
+    // Store enhancers
+    responsiveStoreEnhancer,
     typeof window === 'object' && typeof window.devToolsExtension !== 'undefined' ?
       window.devToolsExtension() : f => f,
   );

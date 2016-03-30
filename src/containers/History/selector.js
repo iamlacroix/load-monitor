@@ -1,9 +1,14 @@
 import { createSelector } from 'reselect';
-import { loadAvgsIn10SecondIntervals } from '../../selectors';
+import {
+  browserWidth as browserWidthSelector,
+  loadAvgsIn10SecondIntervals,
+} from '../../selectors';
 
 export default createSelector(
+  browserWidthSelector,
   loadAvgsIn10SecondIntervals,
-  (averages) => ({
+  (browserWidth, averages) => ({
+    browserWidth,
     averages,
   })
 );
