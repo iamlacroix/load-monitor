@@ -6,7 +6,7 @@ const healthThreshold = 1;
 
 export default function calcSystemHealth(allRecords) {
   const records = allRecords
-    // Get records from the last 2 minutes.
+    // Get records from the past 2 minutes.
     .filter(record => record.get('recordedAt') >= Date.now() - twoMinutes);
 
   const avg = records

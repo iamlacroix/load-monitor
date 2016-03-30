@@ -32,6 +32,8 @@ To run the development environment with hot reloading, etc., use:
 npm run dev
 ```
 
+With either option, the app will be available at: [http://localhost:3000](http://localhost:3000)
+
 ## Testing
 
 The tests are located in `src/__tests__`. To run the tests, use:

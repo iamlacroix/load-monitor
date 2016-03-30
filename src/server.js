@@ -10,7 +10,7 @@ const PRODUCTION = process.env.NODE_ENV === 'production';
 
 const server = new Hapi.Server();
 server.connection({
-  // host: process.env.HOST || config.get('/host', { env: process.env.NODE_ENV }),
+  host: process.env.HOST || 'localhost',
   port: process.env.PORT || 3000,
   address: '0.0.0.0',
 });

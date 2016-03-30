@@ -1,5 +1,4 @@
 import { createStore, applyMiddleware, compose } from 'redux';
-import createLogger from 'redux-logger';
 import { responsiveStoreEnhancer } from 'redux-responsive';
 import sagaMiddleware from 'redux-saga';
 import sagas from '../sagas';
@@ -18,6 +17,7 @@ const enhancers = (process.env.NODE_ENV === 'production') ? () => (
 ) : () => {
   // Development
 
+  const createLogger = require('redux-logger');
   const logger = createLogger({
     collapsed: true,
   });
